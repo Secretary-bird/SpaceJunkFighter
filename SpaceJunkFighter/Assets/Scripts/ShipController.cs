@@ -16,7 +16,7 @@ public class ShipController : MonoBehaviour
     {
         GameObject scoreGO = GameObject.Find("ScoreCounter");
         scoreGT = scoreGO.GetComponent<Text>();
-        scoreGT.text = "0";
+        scoreGT.text = "20";
     }
 
     // Update is called once per frame

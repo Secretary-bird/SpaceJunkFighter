@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Laser : MonoBehaviour
 {
-    public Text scoreGT;
+    
  
     // Start is called before the first frame update
     void Start()
@@ -21,18 +21,12 @@ public class Laser : MonoBehaviour
     void OnCollisionEnter(Collision coll)
     {
         GameObject collidedWith = coll.gameObject;
-        //What Hit Basket
+        //What Hit Laser
         if (collidedWith.tag == "Obstacle")
         {
             Destroy(collidedWith);
-            int score = int.Parse(scoreGT.text);
-            score += 100;
-            scoreGT.text = score.ToString();
-
-            if (score > HighScore.score)
-            {
-                HighScore.score = score;
-            }
+ /*           Spaceship spaceship = Camera.main.GetComponent<Spaceship>();
+            spaceship.addScore();*/
         }
 
     }

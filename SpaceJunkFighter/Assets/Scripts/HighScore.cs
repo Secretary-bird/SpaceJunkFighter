@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class HighScore : MonoBehaviour
 {
-   static public int score = 1000;
-
+    public Text scoreGT;
+    private bool alive = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,23 +16,35 @@ public class HighScore : MonoBehaviour
 
     void Awake()
     {
-        if (PlayerPrefs.HasKey("HighScore"))
-        {
-            score = PlayerPrefs.GetInt("HighScore");
-        }
-        PlayerPrefs.SetInt("HighScore", score);
+        GameObject scoreGO = GameObject.Find("ScoreHandler");
+        scoreGT = scoreGO.GetComponent<Text>();
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        Text gt = this.GetComponent<Text>();
-        gt.text = "High Score: " + score;
-
-        if (score > PlayerPrefs.GetInt("HighScore"))
+        Spaceship jeff = Camera.main.GetComponent<Spaceship>();
+        if (alive == true)
         {
-            PlayerPrefs.SetInt("HighScore", score);
+            scoreGT.text = ("Lives: " + jeff.lives);
+            if (jeff.lives == 0)
+            {
+                isDead();
+            }
         }
+        
+    }
 
+    void isDead()
+    {
+        Spaceship jeff = Camera.main.GetComponent<Spaceship>();
+        
+            alive = false;
+            scoreGT.text = ("YOU DIED");
+            GameObject junk = GameObject.Find("JunkHandler");
+            Destroy(junk);
+            GameObject ship = GameObject.Find("Ship 1");
+            Destroy(ship);
+        
     }
 }
