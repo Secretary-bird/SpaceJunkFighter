@@ -1,0 +1,11 @@
+We realized early on that the snake concept was gonna be too dificult to complete 
+with the time we had left, so we decided to make a game with the mechanics of an old game
+called Space Harrier. We used the mechanic from apple picker to destroy objects that flew
+past the character and force them to lose a life. We also used the rotation functionality 
+on the enemy entities so we dont have static objects flying towards us. The OnMouseDown
+was what allowed us to fire the lazer to destroy the projectiles, and we destroyed 
+projectiles like in apple picker instead of just deactivating them from the game and
+allowing instances of the enemy projectile to keep spawning infinitly. It incorperated 
+more of what the project was actually about, while also being managable to create.
+We ended up having problems with the github process, the gitignore wasn’t working properly.
+We were only able to make about two commits.
